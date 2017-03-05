@@ -1,0 +1,27 @@
+
+-pseudolts_fixed
+-C 1e10
+-ita_cfl_max 1e20
+-physics Poisson
+-d 3
+-a 2
+
+-f ../meshes/cube2x2
+#-f ../meshes/square1
+-poisson_problem_data sinhsin
+
+-a 2
+-mesh_type e
+-mext_nlayer 3
+-mext_btag 1
+-mext_stencil_size 0,0,6,6,6
+-mcell2d_stencil_size 0,0,0,0,0
+
+-ksp_rtol 1e-8
+-sub_pc_factor_levels 0
+
+-physics_problem_data sinhsin
+
+-mcell3d_part_file cube2x2_npart4.par
+# -on_error_attach_debugger
+# -start_in_debugger

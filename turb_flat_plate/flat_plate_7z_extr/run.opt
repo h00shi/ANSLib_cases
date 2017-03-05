@@ -1,0 +1,89 @@
+# --------------------------- MESH
+-f flatplate1
+
+# --------------------------- HISTORY AND SOLUTION FILE NAME
+# -sol flat_plate_4-a2
+
+-ita_history_name xxx.hst
+# -mcell3d_part_file flat_plate_2_npart4.part
+
+# --------------------------- ACCURACY
+-a 2
+-mext_stencil_size 0,0,6,6,6
+
+# --------------------------- PHYSICS
+-mext_length 1
+-mext_nlayer 7
+
+-d 3
+-mesh_type e
+-physics TurbSA3D
+-mach 0.2
+-reynolds 5e6
+-angle 0
+
+-turbsa3d_problem_data flat_plate
+# -write-step
+
+# --------------------------- SOLVER OPTIONS
+-C 1
+-kappa_ls 1.2
+-no_distance_weight
+-pseudolts_fixed
+-max_iter 100
+-jacobian_type recanalytic
+
+# --------------------------- KSP
+-exnut 0
+-ksp_max_it 500
+-ksp_type fgmres
+-ksp_gmres_preallocate
+-ksp_norm_type unpreconditioned
+-ksp_converged_reason
+-ksp_rtol 1e-3
+# -ksp_monitor
+# -log_view
+-ita_target_residual 1e-5
+
+# --------------------------- PC
+ # -ksp_type gmres
+ # -ksp_norm_type preconditioned
+ # -pc_type bjacobi
+ # -sub_pc_type ilu
+ # -sub_pc_factor_levels 3
+ # -sub_pc_factor_mat_ordering_type qmd
+
+# # ------------------------------------------ LINES
+# -max_angle 360
+# -al 2
+# -mu 1
+# -min_wgt 180
+# -vv 0
+
+
+# ##-------- ILU3 - ANSKSP_ANSKSP_BJACOBI_LULINES
+# -Ccap 500
+-pre_order 1
+-mu 1e-5
+#-only_lines 1
+-pc_type ansksp
+-ansksp_ksp_type richardson
+-ansksp_ksp_norm_type none
+-ansksp_ksp_max_it 1
+-ansksp_pc_type ksp
+-ansksp_ksp_ksp_type gmres
+-ansksp_ksp_ksp_max_it 5 
+-ansksp_ksp_pc_type bjacobi
+-ansksp_ksp_sub_ksp_type richardson
+-ansksp_ksp_sub_ksp_max_it 1
+-ansksp_ksp_sub_pc_type ilu
+-ansksp_ksp_sub_pc_factor_levels 0
+-ansksp_ksp_sub_pc_factor_mat_ordering_type rcm
+
+#-ansksp_ansksp_sub_pc_factor_fill 1.1
+#-ansksp_ansksp_ksp_richardson_scale 0.5
+-ansksp_ksp_gmres_preallocate
+#-ansksp_ansksp_ksp_gmres_preallocate
+
+# -info
+
