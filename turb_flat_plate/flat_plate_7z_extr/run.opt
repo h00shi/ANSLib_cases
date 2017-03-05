@@ -1,11 +1,11 @@
 # --------------------------- MESH
--f flatplate1
+-f MESH/flatplate_new_61x35
 
 # --------------------------- HISTORY AND SOLUTION FILE NAME
 # -sol flat_plate_4-a2
 
--ita_history_name xxx.hst
-# -mcell3d_part_file flat_plate_2_npart4.part
+-ita_history_name xxx2.hst
+# -mcell2d_part_file flat_plate_2_npart4.part
 
 # --------------------------- ACCURACY
 -a 2
@@ -13,7 +13,7 @@
 
 # --------------------------- PHYSICS
 -mext_length 1
--mext_nlayer 7
+-mext_nlayer 3
 
 -d 3
 -mesh_type e
@@ -26,7 +26,7 @@
 # -write-step
 
 # --------------------------- SOLVER OPTIONS
--C 1
+-C 0.1
 -kappa_ls 1.2
 -no_distance_weight
 -pseudolts_fixed
@@ -78,7 +78,7 @@
 -ansksp_ksp_sub_ksp_max_it 1
 -ansksp_ksp_sub_pc_type ilu
 -ansksp_ksp_sub_pc_factor_levels 0
--ansksp_ksp_sub_pc_factor_mat_ordering_type rcm
+-ansksp_ksp_sub_pc_factor_mat_ordering_type lines
 
 #-ansksp_ansksp_sub_pc_factor_fill 1.1
 #-ansksp_ansksp_ksp_richardson_scale 0.5

@@ -7,8 +7,8 @@
 -a 2
 
 -f MESH/cube2x2
-#-f ../meshes/square1
-#-mcell3d_part_file MESH/cube2x2_npart2.part
+# -f ../meshes/square1
+-mcell2d_part_file MESH/cube2x2_npart2.part
 
 
 -poisson_problem_data sinhsin
