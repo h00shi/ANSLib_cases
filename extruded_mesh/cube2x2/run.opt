@@ -6,8 +6,11 @@
 -d 3
 -a 2
 
--f ../meshes/cube2x2
+-f MESH/cube2x2
 #-f ../meshes/square1
+#-mcell3d_part_file MESH/cube2x2_npart2.part
+
+
 -poisson_problem_data sinhsin
 
 -a 2
@@ -22,6 +25,5 @@
 
 -physics_problem_data sinhsin
 
--mcell3d_part_file cube2x2_npart4.par
 # -on_error_attach_debugger
 # -start_in_debugger
