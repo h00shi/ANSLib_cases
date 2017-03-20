@@ -16,6 +16,8 @@ echo "tet_20"
 ${GENERATOR} n=21 ctype=0 out=tet_20
 echo "tet_40"
 ${GENERATOR} n=41 ctype=0 out=tet_40
+echo "tet_80"
+${GENERATOR} n=81 ctype=0 out=tet_80
 
 ## GENERATE ``HEX'' MESHES
 echo "hex_5"
@@ -26,6 +28,8 @@ echo "hex_20"
 ${GENERATOR} n=21 ctype=1 out=hex_20
 echo "hex_40"
 ${GENERATOR} n=41 ctype=1 out=hex_40
+echo "hex_80"
+${GENERATOR} n=81 ctype=1 out=hex_80
 
 ## GENERATE ``PRISM'' MESHES
 echo "wedge_5"
@@ -36,6 +40,8 @@ echo "wedge_20"
 ${GENERATOR} n=21 ctype=2 out=wedge_20
 echo "wedge_40"
 ${GENERATOR} n=41 ctype=2 out=wedge_40
+echo "wedge_80"
+${GENERATOR} n=81 ctype=2 out=wedge_80
 
 ## GENERATE ``PYRAMID'' MESHES
 echo "pyramid_5"
@@ -46,6 +52,8 @@ echo "pyramid_20"
 ${GENERATOR} n=21 ctype=3 out=pyramid_20
 echo "pyramid_40"
 ${GENERATOR} n=41 ctype=3 out=pyramid_40
+echo "pyramid_80"
+${GENERATOR} n=81 ctype=3 out=pyramid_80
 
 
 
