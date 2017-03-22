@@ -33,8 +33,8 @@ $EXEC $OPT $PD $ORDER -f MESH/${ELE}_10 -ita_history_name ${UNAME}_10.hst >> ${U
 echo $EXEC $OPT $PD $ORDER -f MESH/${ELE}_20 -ita_history_name ${UNAME}_20.hst
 $EXEC $OPT $PD $ORDER -f MESH/${ELE}_20 -ita_history_name ${UNAME}_20.hst >> ${UNAME}.out
 
-echo $EXEC $OPT $PD $ORDER -f MESH/${ELE}_40 -ita_history_name ${UNAME}_40.hst
-$EXEC $OPT $PD $ORDER -f MESH/${ELE}_40 -ita_history_name ${UNAME}_40.hst >> ${UNAME}.out
+# echo $EXEC $OPT $PD $ORDER -f MESH/${ELE}_40 -ita_history_name ${UNAME}_40.hst
+# $EXEC $OPT $PD $ORDER -f MESH/${ELE}_40 -ita_history_name ${UNAME}_40.hst >> ${UNAME}.out
 
-echo $EXEC $OPT $PD $ORDER -f MESH/${ELE}_80 -ita_history_name ${UNAME}_80.hst
-$EXEC $OPT $PD $ORDER -f MESH/${ELE}_80 -ita_history_name ${UNAME}_80.hst >> ${UNAME}.out
+# echo $EXEC $OPT $PD $ORDER -f MESH/${ELE}_80 -ita_history_name ${UNAME}_80.hst
+# $EXEC $OPT $PD $ORDER -f MESH/${ELE}_80 -ita_history_name ${UNAME}_80.hst >> ${UNAME}.out

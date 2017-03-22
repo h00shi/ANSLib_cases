@@ -1,0 +1,35 @@
+#---------------------------------- PHYSICS
+-physics Euler3D
+-d 3
+-euler3d_flux 1
+-mesh_type c
+-mach 0.2
+-angle 0
+
+# --------------------------------- SOLVER OPTIONS
+-ksp_type fgmres
+-ksp_gmres_preallocate
+-ksp_gmres_restart 100
+-ksp_max_it 500
+-pre_order 1
+-pc_type ansksp
+-ansksp_ksp_norm_type unpreconditioned
+-ansksp_ksp_max_it 5
+-ansksp_pc_type sor
+-ansksp_pc_sor_its 5
+-recon_condition
+-C 10
+-jacobian_type recanalytic
+-pseudolts_fixed
+-max_iter 50
+
+# --------------------------------- FILE NAMES
+-f MESH/sphere_m1
+-sol_out sol/sphere_m1_a1
+-ita_history_name hst/m1_a1.hst
+
+# --------------------------------- ACCURACY AND STENCIL
+-a 1
+-ita_target_residual 1e-5
+-stencil_size 0,0,6,15,30
+
