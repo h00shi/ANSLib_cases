@@ -39,7 +39,7 @@ for p in pset:
             comname2 = 'h' + `h` + '_p' + `p - 1`
             f.write('-sol_out sol/sphere_' + comname2 + '\n')
         f.write('-sol_out sol/sphere_' + comname + '\n')
-        f.write('-ita_history_name hst/' + comname + '.hst\n')
+        f.write('-ita_history_name pp_data/' + comname + '.hst\n')
 
         f.write('\n# --------------------------------- ACCURACY AND STENCIL\n')
         f.write('-a ' + `p` + '\n')
