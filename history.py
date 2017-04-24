@@ -42,6 +42,7 @@ class ConvergenceHistory:
         self.cpu = []
         self.x_linear = [0]
         self.n_linear = []
+        self.n_cumu_linear = []
         self.res_linear = []
 
         self.xaxis_nl = []
@@ -52,6 +53,7 @@ class ConvergenceHistory:
         self.yaxis_res_l = []
         self.yaxis_res_nl = []
         self.yaxis_l = []
+        self.yaxis_cumul = []
 
         # -----------------------
         # open the file and start reading
@@ -88,6 +90,10 @@ class ConvergenceHistory:
             line = line.split(" ")
             niter = int(line[0])
             self.n_linear.append(niter)
+            if (len(self.n_cumu_linear) > 0):
+                self.n_cumu_linear.append(niter + self.n_cumu_linear[-1])
+            else:
+                self.n_cumu_linear.append(niter)
             self.x_linear.append(self.x_linear[-1] + niter)
 
             # read the linear iterations
@@ -135,6 +141,7 @@ class ConvergenceHistory:
 
         # number of iterations
         self.yaxis_l = np.array(self.n_linear)
+        self.yaxis_cumul = np.array(self.n_cumu_linear)
 
         # CFL
         self.yaxis_cfl = np.array(self.cfl)
