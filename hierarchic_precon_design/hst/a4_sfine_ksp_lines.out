@@ -1,0 +1,4 @@
+Reading local file options/a4_sfine_ksp_lines.opt for options. 
+#No PETSc Option Table entries
+Physics classes defined: AUSM2D AUSMP2D AdvDiff Advection Burgers Carreau2D Euler2DAdjoint Euler3D Newtonian2D Poisson Potential PowerLaw2D Roe2D RoeTurbSA2D RoeVisc2D RoeVisc2DAdjoint TurbSA3D ViscBurgers 
+DualPhysics classes defined: AUSM2DError AUSMP2DError AdvDiffError AdvectionError BurgersError Carreau2DError Newtonian2DError PoissonError PowerLaw2DError Roe2DError RoeTurbSA2DError RoeVisc2DError ViscBurgersError 
