@@ -15,51 +15,60 @@ if __name__ == "__main__":
     labels = ['1', '2', '3', '4', '5', '6', '7']
     jobs = []
 
-    # jobs.append(hst.ConvergenceHistory("hst/a3_medium_qmd3.hst"))
-    # jobs.append(hst.ConvergenceHistory("hst/a4_medium_full_qmd.hst"))
-    jobs.append(hst.ConvergenceHistory("hst/a4_medium_fullr_qmd.hst"))
-    jobs.append(hst.ConvergenceHistory("hst/a4_medium_fullr_lines.hst"))
-    jobs.append(hst.ConvergenceHistory("hst/a4_medium_fullr_rcm.hst"))
+    jobs.append(hst.ConvergenceHistory("hst/a3_sfine.hst"))
+    jobs.append(hst.ConvergenceHistory("hst/a4_fine_ksp_lines.hst"))
+    jobs.append(hst.ConvergenceHistory("hst/a4_sfine_ksp_lines.hst"))
 
-    # jobs.append(hst.ConvergenceHistory("hst/a4_medium_full_lines.hst"))
-    # jobs.append(hst.ConvergenceHistory("hst/a4_medium_full_rcm.hst"))
+    # jobs.append(hst.ConvergenceHistory("hst/a3_medium.hst"))
 
-    jobs.append(hst.ConvergenceHistory("hst/a4_medium_ansksp_qmd.hst"))
+    # jobs.append(hst.ConvergenceHistory("hst/a3_fine.hst"))
+    # jobs.append(hst.ConvergenceHistory("hst/a4_fine_ksp_lines.hst"))
+    # jobs.append(hst.ConvergenceHistory("hst/a4_fine_ksp_rcm.hst"))
+    # jobs.append(hst.ConvergenceHistory("hst/a4_fine_full_qmd.hst"))
+    # jobs.append(hst.ConvergenceHistory("hst/a4_fine_onlyone_lines.hst"))
+    # jobs.append(hst.ConvergenceHistory("hst/a4_fine_onlyone_rcm.hst"))
+
     # jobs.append(hst.ConvergenceHistory("hst/a4_medium_ksp_lines.hst"))
-    # jobs.append(hst.ConvergenceHistory("hst/a4_medium_ansksp_lines.hst"))
+    # jobs.append(hst.ConvergenceHistory("hst/a4_medium_ksp_rcm.hst"))
+    # jobs.append(hst.ConvergenceHistory("hst/a4_medium_full_qmd.hst"))
+    # jobs.append(hst.ConvergenceHistory("hst/a4_medium_onlyone_lines.hst"))
+    # jobs.append(hst.ConvergenceHistory("hst/a4_medium_onlyone_rcm.hst"))
 
     for j, c, l, s in zip(jobs, colors, labels, symbols):
         j.init_axis()
 
         plt.figure(1)
         plt.semilogy(j.yaxis_cpu, j.yaxis_res_nl[0], c + s + '-', label=l)
+        #plt.locator_params(axis='y', nbins=4)
+        ax = plt.gca()
+        # ax.locator_params(nbins=3, axis='y')
         # plt.semilogy(j.xaxis_l_cpu, j.yaxis_res_l, c + '-')
 
         plt.figure(2)
         plt.semilogy(j.xaxis_nl, j.yaxis_res_nl[0], c + s + '--', label=l)
-        # plt.semilogy(j.xaxis_l, j.yaxis_res_l, c + '-')
+        # # plt.semilogy(j.xaxis_l, j.yaxis_res_l, c + '-')
 
-        plt.figure(3)
-        plt.semilogy(j.yaxis_cpu, j.yaxis_cumul, c + '--', label=l)
+        # plt.figure(3)
+        # plt.semilogy(j.yaxis_cpu, j.yaxis_cumul, c + '--', label=l)
 
-        plt.figure(4)
-        plt.semilogy(j.xaxis_nl, j.yaxis_l, c + s + '--', label=l)
-
-    # -------
-    plt.figure(1)
-    # plt.title(file_title)
-    plt.legend(loc='upper right', fontsize=10)
-    plt.xlabel('CPU time')
-    plt.ylabel('Residuals')
-
-   # plt.savefig(file_name + '-time.png')
+        # plt.figure(4)
+        # plt.semilogy(j.xaxis_nl, j.yaxis_l, c + s + '--', label=l)
 
     # -------
-    plt.figure(2)
-    # plt.title(file_title)
-    plt.legend(loc='upper right', fontsize=10)
-    plt.xlabel('# NLI')
-    plt.ylabel('Residuals')
+    #  plt.figure(1)
+    #  # plt.title(file_title)
+    #  plt.legend(loc='upper right', fontsize=10)
+    #  plt.xlabel('CPU time')
+    #  plt.ylabel('Residuals')
+
+    # # plt.savefig(file_name + '-time.png')
+
+    #  # -------
+    #  plt.figure(2)
+    #  # plt.title(file_title)
+    #  plt.legend(loc='upper right', fontsize=10)
+    #  plt.xlabel('# NLI')
+    #  plt.ylabel('Residuals')
 
     # plt.savefig(file_name + '-it.png')
 
