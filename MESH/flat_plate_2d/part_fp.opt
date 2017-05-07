@@ -1,0 +1,25 @@
+# ------------------------------------------- MESH
+#-f plate_m1
+#-f plate_m2
+-f plate_m3
+
+#-mcell2d_part_file mesh_fp/flatplate_new_61x35_npart4.part
+
+# ------------------------------------------ PARTITIONING
+-n_part 2-10
+
+# ------------------------------------------ PROPERTIES
+-mu 1
+#-min_wgt 5000 #m1
+#-min_wgt 1e5 #m2
+-min_wgt 5e5 #m3
+-max_angle 55
+-vv 0
+
+-mesh_type c
+-mcell2d_stencil_size 0,0,0,0,0
+-physics RoeTurbSA2D
+-reynolds 5000000
+-mach 0.2
+-angle 0
+-JC 1
