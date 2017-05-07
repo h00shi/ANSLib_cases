@@ -1,7 +1,7 @@
-k1 = 1;
-k2 = 3;
-ko = 30;
-lc = .1; // 0.4 0.2 0.1
+k1 = 2;
+k2 = 5;
+ko = 50;
+lc = .05; // 0.4 0.2 0.1
 lc1 = k1 * lc;
 lc2 = k2 * lc;
 lo = ko  * lc;
@@ -191,46 +191,46 @@ Ruled Surface(s1+8) = {s1+8};
 // ----------------------------------------------------------------------
 //                     A Cylinder to capture wake 
 // ----------------------------------------------------------------------
-p2= 15+p1;
-l2= 24+l1;
-s2= 14+s1;
+// p2= 15+p1;
+// l2= 24+l1;
+// s2= 14+s1;
 
-Point(p2+2) = {d*3/4 , 0  , b    , lc2};
-Point(p2+3) = {d*3/4 , b  , 0    , lc2};
-Point(p2+4) = {d*3/4 , 0  , -b    , lc2};
-Point(p2+5) = {d*3/4 , -b , 0    , lc2};
-Point(p2+6) = {d*3/4 , 0  , 0    , lc2};
+// Point(p2+2) = {d*3/4 , 0  , b    , lc2};
+// Point(p2+3) = {d*3/4 , b  , 0    , lc2};
+// Point(p2+4) = {d*3/4 , 0  , -b    , lc2};
+// Point(p2+5) = {d*3/4 , -b , 0    , lc2};
+// Point(p2+6) = {d*3/4 , 0  , 0    , lc2};
 
-Point(p2+7) = {6 , 0  , b    , lc2};
-Point(p2+8) = {6 , b  , 0    , lc2};
-Point(p2+9) = {6 , 0  , -b    , lc2};
-Point(p2+10) = {6 , -b , 0    , lc2};
-Point(p2+11) = {6 , 0  , 0    , lc2};
+// Point(p2+7) = {6 , 0  , b    , lc2};
+// Point(p2+8) = {6 , b  , 0    , lc2};
+// Point(p2+9) = {6 , 0  , -b    , lc2};
+// Point(p2+10) = {6 , -b , 0    , lc2};
+// Point(p2+11) = {6 , 0  , 0    , lc2};
 
-Line(l2+2) = {p2+7, p2+2}; 
-Line(l2+3) = {p2+8, p2+3}; 
-Line(l2+4) = {p2+9, p2+4}; 
-Line(l2+5) = {p2+10, p2+5};
+// Line(l2+2) = {p2+7, p2+2}; 
+// Line(l2+3) = {p2+8, p2+3}; 
+// Line(l2+4) = {p2+9, p2+4}; 
+// Line(l2+5) = {p2+10, p2+5};
 
-Circle(l2+6) = {p2+2, p2+6, p2+3};
-Circle(l2+7) = {p2+3, p2+6, p2+4};
-Circle(l2+8) = {p2+4, p2+6, p2+5};
-Circle(l2+9) = {p2+5, p2+6, p2+2};
+// Circle(l2+6) = {p2+2, p2+6, p2+3};
+// Circle(l2+7) = {p2+3, p2+6, p2+4};
+// Circle(l2+8) = {p2+4, p2+6, p2+5};
+// Circle(l2+9) = {p2+5, p2+6, p2+2};
 
-Circle(l2+10) = {p2+7, p2+11, p2+8};
-Circle(l2+11) = {p2+8, p2+11, p2+9};
-Circle(l2+12) = {p2+9, p2+11, p2+10};
-Circle(l2+13) = {p2+10, p2+11, p2+7};
+// Circle(l2+10) = {p2+7, p2+11, p2+8};
+// Circle(l2+11) = {p2+8, p2+11, p2+9};
+// Circle(l2+12) = {p2+9, p2+11, p2+10};
+// Circle(l2+13) = {p2+10, p2+11, p2+7};
 
-Line Loop(s2+1) = {l2+2, l2+6, -(l2+3), -(l2+10)};
-Line Loop(s2+2) = {l2+3, l2+7, -(l2+4), -(l2+11)};
-Line Loop(s2+3) = {l2+4, l2+8, -(l2+5), -(l2+12)};
-Line Loop(s2+4) = {l2+5, l2+9, -(l2+2), -(l2+13)};
+// Line Loop(s2+1) = {l2+2, l2+6, -(l2+3), -(l2+10)};
+// Line Loop(s2+2) = {l2+3, l2+7, -(l2+4), -(l2+11)};
+// Line Loop(s2+3) = {l2+4, l2+8, -(l2+5), -(l2+12)};
+// Line Loop(s2+4) = {l2+5, l2+9, -(l2+2), -(l2+13)};
 
-Ruled Surface(s2+1) = {s2+1};
-Ruled Surface(s2+2) = {s2+2};
-Ruled Surface(s2+3) = {s2+3};
-Ruled Surface(s2+4) = {s2+4};
+// Ruled Surface(s2+1) = {s2+1};
+// Ruled Surface(s2+2) = {s2+2};
+// Ruled Surface(s2+3) = {s2+3};
+// Ruled Surface(s2+4) = {s2+4};
 
 // ----------------------------------------------------------------------
 //                                Volume
@@ -244,9 +244,10 @@ Volume(1) = {2,1};
 
 Surface{+14+1,+14+2,+14+3,+14+4,+14+5,+14+6,+14+7,+14+8} In Volume {1};
 Surface{+s1+1,+s1+2,+s1+3,+s1+4,+s1+5,+s1+6,+s1+7,+s1+8} In Volume {1};
-Surface {s2+1, s2+2, s2+3, s2+4} In Volume {1};
+//Surface {s2+1, s2+2, s2+3, s2+4} In Volume {1};
 
 Physical Volume(1) = {1};
 Physical Surface(5) = {9,10,11,12,13,14};
 Physical Surface(1) = {1,2,3,4,5,6,7,8};
 
+Coherence;
