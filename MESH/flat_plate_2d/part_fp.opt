@@ -1,18 +1,16 @@
 # ------------------------------------------- MESH
 #-f plate_m1
-#-f plate_m2
--f plate_m3
-
-#-mcell2d_part_file mesh_fp/flatplate_new_61x35_npart4.part
+-f plate_m2
+#-f plate_m3
 
 # ------------------------------------------ PARTITIONING
--n_part 2-10
+-n_part 2-11
 
 # ------------------------------------------ PROPERTIES
 -mu 1
-#-min_wgt 5000 #m1
-#-min_wgt 1e5 #m2
--min_wgt 5e5 #m3
+-min_wgt 1e5 #m1
+#-min_wgt 1e6 #m2
+#-min_wgt 1e7 #m3
 -max_angle 55
 -vv 0
 

@@ -1,0 +1,180 @@
+[n256:06369] System has detected external process binding to cores 0001
+[n256:06369] MCW rank 0 bound to socket 0[core 0]: [B]
+[n254:03270] MCW rank 1 bound to socket 0[core 0]: [B]
+Reading local file options/h2_p4.opt for options. 
+#PETSc Option Table entries:
+-C 0.1
+-a 4
+-angle 0
+-d 3
+-exnut 1
+-f MESH/plate_m2
+-ita_history_name pp_data/h2_p4.hst
+-ita_histoy_name pp_data/P2_h2_p4.hst
+-ita_target_residual 1e-8
+-jacobian_type recanalytic
+-ksp_gmres_preallocate
+-ksp_gmres_restart 100
+-ksp_max_it 500
+-ksp_norm_type unpreconditioned
+-ksp_rtol 1e-3
+-ksp_type fgmres
+-mach 0.2
+-max_iter 70
+-mcell3d_part_file MESH/plate_m2
+-mesh_type c
+-no_distance_weight
+-opt options/h2_p4.opt
+-pc_type bjacobi
+-physics TurbSA3D
+-pre_order 1
+-pseudolts_fixed
+-recon_condition
+-reynolds 5e6
+-sol sol/h2_p3
+-sol_out sol/h2_p4
+-sub_ksp_gmres_preallocate
+-sub_ksp_maxit 10
+-sub_ksp_norm_type preconditioned
+-sub_ksp_type gmres
+-sub_pc_factor_levels 2
+-sub_pc_factor_mat_ordering_type rcm
+-turbsa3d_pp_file pp_data/h2_p4.postproc
+-turbsa3d_problem_data flat_plate
+#End of PETSc Option Table entries
+Physics classes defined: AUSM2D AUSMP2D AdvDiff Advection Burgers Carreau2D Euler2DAdjoint Euler3D Newtonian2D Poisson Potential PowerLaw2D Roe2D RoeTurbSA2D RoeVisc2D RoeVisc2DAdjoint TurbSA3D ViscBurgers 
+DualPhysics classes defined: AUSM2DError AUSMP2DError AdvDiffError AdvectionError BurgersError Carreau2DError Newtonian2DError PoissonError PowerLaw2DError Roe2DError RoeTurbSA2DError RoeVisc2DError ViscBurgersError 
+MeshCell3D Constructor ------------------------------------------- 
+Reading MESH/plate_m2.vmesh 
+Reading MESH/plate_m2_npart2.part for partition data. 
+[0] faces: n_interior = 168721; n_boundary = 11607; n_partition = 2017; n_total = 182345
+[1] faces: n_interior = 161190; n_boundary = 9977; n_partition = 2017; n_total = 173184
+n_global_faces = 353512
+Extra Quadrature Order: cell: 0  face: 0 
+Stencil size: 0, 6, 15, 30 
+Global Num of CVs : 114240
+[0] Num of CVs : 58511
+[1] Num of CVs : 55729
+End of MeshCell3D Constructor ------------------------------------ 
+Creating a TurbSA3D Physics object. 
+alpha=0.000000 psi=0. 
+Min/max recon condition numbers:    8.96254    134.202
+Recon Order: 4 
+Recon Order: 4 
+Min/max recon condition numbers:    8.96254    310.103
+Jacobian is of order: 4 
+Beginning Matrix Assembly
+Control volumes: 114240, non-zeros: 6772005
+Assembled Matrix
+Creating a recon of order 1 for JacInteg 
+Beginning Matrix Assembly
+Control volumes: 114240, non-zeros: 397970
+Assembled Matrix
+KSP Object: 2 MPI processes
+  type: fgmres
+    GMRES: restart=100, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+    GMRES: happy breakdown tolerance 1e-30
+  maximum iterations=500, initial guess is zero
+  tolerances:  relative=0.001, absolute=1e-16, divergence=10000.
+  right preconditioning
+  using UNPRECONDITIONED norm type for convergence test
+PC Object: 2 MPI processes
+  type: bjacobi
+    block Jacobi: number of blocks = 2
+    Local solve is same for all blocks, in the following KSP and PC objects:
+  KSP Object:  (sub_)   1 MPI processes
+    type: gmres
+      GMRES: restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+      GMRES: happy breakdown tolerance 1e-30
+    maximum iterations=10000, initial guess is zero
+    tolerances:  relative=1e-05, absolute=1e-50, divergence=10000.
+    left preconditioning
+    using PRECONDITIONED norm type for convergence test
+  PC Object:  (sub_)   1 MPI processes
+    type: ilu
+    PC has not been set up so information may be incomplete
+      ILU: out-of-place factorization
+      ILU: Reusing reordering from past factorization
+      2 levels of fill
+      tolerance for zero pivot 2.22045e-14
+      using diagonal shift to prevent zero pivot [NONZERO]
+      matrix ordering: rcm
+    linear system matrix = precond matrix:
+    Mat Object:     1 MPI processes
+      type: seqbaij
+      rows=351066, cols=351066, bs=6
+      total: nonzeros=14254308, allocated nonzeros=14254308
+      total number of mallocs used during MatSetValues calls =0
+          block size is 6
+  linear system matrix followed by preconditioner matrix:
+  Mat Object:   2 MPI processes
+    type: mpibaij
+    rows=685440, cols=685440, bs=6
+    total: nonzeros=478254528, allocated nonzeros=478254528
+    total number of mallocs used during MatSetValues calls =0
+        block size is 6
+  Mat Object:   2 MPI processes
+    type: mpibaij
+    rows=685440, cols=685440, bs=6
+    total: nonzeros=28011456, allocated nonzeros=28011456
+    total number of mallocs used during MatSetValues calls =0
+        block size is 6
+Initial fnorm: 6826.67 
+Step:   1  CFL:          0.1  fnorm: 1.727406E+03  CPU: 179.5226  WU:  59.7440 #LI:    8 #ILI:  -1 om:1.0000
+Step:   2  CFL:         0.15  fnorm: 6.628416E+02  CPU: 364.4044  WU: 121.2714 #LI:   10 #ILI:  -1 om:1.0000
+Step:   3  CFL:        0.225  fnorm: 3.844473E+02  CPU: 552.3824  WU: 183.8293 #LI:   10 #ILI:  -1 om:1.0000
+Step:   4  CFL:       0.3375  fnorm: 2.977912E+02  CPU: 740.3797  WU: 246.3936 #LI:   12 #ILI:  -1 om:1.0000
+Step:   5  CFL:      0.50625  fnorm: 2.244067E+02  CPU: 928.3571  WU: 308.9513 #LI:   14 #ILI:  -1 om:1.0000
+Step:   6  CFL:     0.759375  fnorm: 1.560081E+02  CPU: 1119.2686  WU: 372.4854 #LI:   15 #ILI:  -1 om:1.0000
+Step:   7  CFL:      1.13906  fnorm: 9.819006E+01  CPU: 1316.2504  WU: 438.0396 #LI:   18 #ILI:  -1 om:1.0000
+Step:   8  CFL:      1.70859  fnorm: 5.543820E+01  CPU: 1515.6837  WU: 504.4098 #LI:   21 #ILI:  -1 om:1.0000
+Step:   9  CFL:      2.56289  fnorm: 2.918473E+01  CPU: 1721.3938  WU: 572.8688 #LI:   23 #ILI:  -1 om:1.0000
+Step:  10  CFL:      3.84434  fnorm: 1.529288E+01  CPU: 1932.0389  WU: 642.9701 #LI:   26 #ILI:  -1 om:1.0000
+Step:  11  CFL:       5.7665  fnorm: 7.928284E+00  CPU: 2144.6511  WU: 713.7260 #LI:   29 #ILI:  -1 om:1.0000
+Step:  12  CFL:      8.64976  fnorm: 3.877155E+00  CPU: 2370.6271  WU: 788.9294 #LI:   34 #ILI:  -1 om:1.0000
+Step:  13  CFL:      12.9746  fnorm: 1.854468E+00  CPU: 2608.2672  WU: 868.0145 #LI:   40 #ILI:  -1 om:1.0000
+Step:  14  CFL:       19.462  fnorm: 9.559153E-01  CPU: 2868.0123  WU: 954.4560 #LI:   49 #ILI:  -1 om:1.0000
+Step:  15  CFL:      29.1929  fnorm: 4.765272E-01  CPU: 3141.7141  WU: 1045.5422 #LI:   55 #ILI:  -1 om:1.0000
+Step:  16  CFL:      43.7894  fnorm: 2.034598E-01  CPU: 3446.5656  WU: 1146.9948 #LI:   63 #ILI:  -1 om:1.0000
+Step:  17  CFL:      65.6841  fnorm: 8.485183E-02  CPU: 3782.4825  WU: 1258.7858 #LI:   72 #ILI:  -1 om:1.0000
+Step:  18  CFL:      98.5261  fnorm: 4.105176E-02  CPU: 4157.0929  WU: 1383.4537 #LI:   79 #ILI:  -1 om:1.0000
+Step:  19  CFL:      147.789  fnorm: 1.949550E-02  CPU: 4568.9131  WU: 1520.5048 #LI:   87 #ILI:  -1 om:1.0000
+Step:  20  CFL:      221.684  fnorm: 7.786695E-03  CPU: 5047.2216  WU: 1679.6828 #LI:   97 #ILI:  -1 om:1.0000
+Step:  21  CFL:      332.526  fnorm: 2.565434E-03  CPU: 5633.6614  WU: 1874.8462 #LI:  121 #ILI:  -1 om:1.0000
+Step:  22  CFL:      498.789  fnorm: 5.988529E-04  CPU: 6232.6359  WU: 2074.1810 #LI:  131 #ILI:  -1 om:1.0000
+Step:  23  CFL:      748.183  fnorm: 7.183011E-05  CPU: 6885.5493  WU: 2291.4664 #LI:  140 #ILI:  -1 om:1.0000
+Step:  24  CFL:      1122.27  fnorm: 6.760608E-06  CPU: 7571.0812  WU: 2519.6070 #LI:  158 #ILI:  -1 om:1.0000
+Step:  25  CFL:      1683.41  fnorm: 1.652947E-06  CPU: 8384.4679  WU: 2790.2969 #LI:  169 #ILI:  -1 om:1.0000
+Step:  26  CFL:      2525.12  fnorm: 1.763123E-07  CPU: 9120.7962  WU: 3035.3422 #LI:  156 #ILI:  -1 om:1.0000
+Step:  27  CFL:      3787.68  fnorm: 2.731071E-08  CPU: 9804.6447  WU: 3262.9226 #LI:  152 #ILI:  -1 om:1.0000
+Step:  28  CFL:      5681.51  fnorm: 2.271158E-08  CPU: 10447.7031  WU: 3476.9283 #LI:  139 #ILI:  -1 om:1.0000
+Step:  29  CFL:      8522.27  fnorm: 1.067434E-08  CPU: 10979.7673  WU: 3653.9958 #LI:  107 #ILI:  -1 om:1.0000
+Step:  30  CFL:      12783.4  fnorm: 8.726396E-09  CPU: 11526.8487  WU: 3836.0610 #LI:  105 #ILI:  -1 om:1.0000
+FI Time : 3.00487
+Jac Time : 5062.91
+KSP Time : 6286.52
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD 
+with errorcode 59.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see http://www.mcs.anl.gov/petsc/documentation/faq.html#valgrind
+[0]PETSC ERROR: or try http://valgrind.org on GNU/linux and Apple Mac OS X to find memory corruption errors
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: to get more information on the crash.
+[0]PETSC ERROR: --------------------- Error Message --------------------------------------------------------------
+[0]PETSC ERROR: Signal received
+[0]PETSC ERROR: See http://www.mcs.anl.gov/petsc/documentation/faq.html for trouble shooting.
+[0]PETSC ERROR: Petsc Release Version 3.7.5, Jan, 01, 2017 
+[0]PETSC ERROR: /home/hooshi/code/ANSLib/hooshi/apps/solver/Solver on a arch-gcc-ompi-opt-cxx-parmetis named n256 by hooshi Mon May  8 10:42:52 2017
+[0]PETSC ERROR: Configure options --with-mpi --download-fblaslapack --download-metis --download-parmetis --with-cc=mpicc --with-clanguage=C++ --with-cxx=mpicxx --with-fc=mpif90 --with-shared-libraries --with-debugging=0 COPTFLAGS="-O3 -march=native -mtune=native" CXXOPTFLAGS="-O3 -march=native -mtune=native" FOPTFLAGS="-O3 -march=native -mtune=native"
+[0]PETSC ERROR: #1 User provided function() line 0 in  unknown file
+--------------------------------------------------------------------------
+mpiexec noticed that process rank 1 with PID 3271 on node n254 exited on signal 7 (Bus error).
+--------------------------------------------------------------------------

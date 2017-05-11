@@ -1,0 +1,221 @@
+Reading local file options/h1_p3_lines.opt for options. 
+#PETSc Option Table entries:
+-C 0.1
+-a 3
+-angle 0
+-d 3
+-exnut 1
+-f MESH/plate_m1
+-ita_history_name pp_data/h1_p3_lines.hst
+-ita_target_residual 1e-8
+-jacobian_type recanalytic
+-ksp_gmres_preallocate
+-ksp_gmres_restart 100
+-ksp_ksp_max_it 10
+-ksp_ksp_type gmres
+-ksp_max_it 500
+-ksp_norm_type unpreconditioned
+-ksp_pc_type bjacobi
+-ksp_rtol 1e-3
+-ksp_sub_ksp_gmres_preallocate
+-ksp_sub_pc_factor_levels 2
+-ksp_sub_pc_factor_mat_ordering_type lines
+-ksp_sub_pc_type ilu
+-ksp_type fgmres
+-mach 0.2
+-max_iter 35
+-mcell3d_old_initrecon
+-mcell3d_part_file MESH/plate_m1
+-mesh_type c
+-mu 1e-5
+-no_distance_weight
+-opt options/h1_p3_lines.opt
+-pc_type ksp
+-physics TurbSA3D
+-pre_order 1
+-pseudolts_fixed
+-recon_condition
+-reynolds 5e6
+-sol sol/h1_p2
+-sol_out sol/h1_p3
+-turbsa3d_pp_file pp_data/h1_p3_lines.postproc
+-turbsa3d_problem_data flat_plate
+-vv 1
+#End of PETSc Option Table entries
+Physics classes defined: AUSM2D AUSMP2D AdvDiff Advection Burgers Carreau2D Euler2DAdjoint Euler3D Newtonian2D Poisson Potential PowerLaw2D Roe2D RoeTurbSA2D RoeVisc2D RoeVisc2DAdjoint TurbSA3D ViscBurgers 
+DualPhysics classes defined: AUSM2DError AUSMP2DError AdvDiffError AdvectionError BurgersError Carreau2DError Newtonian2DError PoissonError PowerLaw2DError Roe2DError RoeTurbSA2DError RoeVisc2DError ViscBurgersError 
+MeshCell3D Constructor ------------------------------------------- 
+Reading MESH/plate_m1.vmesh 
+Reading MESH/plate_m1_npart8.part for partition data. 
+[0] faces: n_interior = 4605; n_boundary = 875; n_partition = 457; n_total = 5937
+[1] faces: n_interior = 4768; n_boundary = 593; n_partition = 749; n_total = 6110
+[2] faces: n_interior = 4594; n_boundary = 510; n_partition = 796; n_total = 5900
+[3] faces: n_interior = 4927; n_boundary = 766; n_partition = 390; n_total = 6083
+[4] faces: n_interior = 4946; n_boundary = 860; n_partition = 252; n_total = 6058
+[5] faces: n_interior = 4821; n_boundary = 582; n_partition = 498; n_total = 5901
+[6] faces: n_interior = 4651; n_boundary = 561; n_partition = 631; n_total = 5843
+[7] faces: n_interior = 4736; n_boundary = 649; n_partition = 415; n_total = 5800
+n_global_faces = 45538
+Extra Quadrature Order: cell: 0  face: 0 
+Stencil size: 0, 6, 15, 30 
+Calling old init recon. 
+Global Num of CVs : 14280
+[0] Num of CVs : 1757
+[1] Num of CVs : 1813
+[2] Num of CVs : 1749
+[3] Num of CVs : 1835
+[4] Num of CVs : 1834
+[5] Num of CVs : 1787
+[6] Num of CVs : 1749
+[7] Num of CVs : 1756
+End of MeshCell3D Constructor ------------------------------------ 
+Creating a TurbSA3D Physics object. 
+alpha=0.000000 psi=0. 
+Min/max recon condition numbers:    2.10336    14.9068
+Recon Order: 3 
+Recon Order: 3 
+Recon Order: 3 
+Recon Order: 3 
+Recon Order: 3 
+Recon Order: 3 
+Recon Order: 3 
+Recon Order: 3 
+Min/max recon condition numbers:    2.10336    48.4505
+Jacobian is of order: 3 
+Beginning Matrix Assembly
+Control volumes: 14280, non-zeros: 92253
+Assembled Matrix
+Min/max recon condition numbers:    1.04743    2.19163
+Physics space dimensions: 3 
+Creating a Advection Physics object. 
+Physics space dimensions: 3 
+Creating a Poisson Physics object. 
+Physics space dimensions: 3 
+Beginning Matrix Assembly
+Control volumes: 14280, non-zeros: 11424
+Assembled Matrix
+FOUND WIEGHTS. 
+FOUND WIEGHTS. 
+FOUND WIEGHTS. 
+FOUND WIEGHTS. 
+FOUND WIEGHTS. 
+FOUND WIEGHTS. 
+FOUND WIEGHTS. 
+FOUND WIEGHTS. 
+Creating a recon of order 1 for JacInteg 
+Beginning Matrix Assembly
+Control volumes: 14280, non-zeros: 11424
+Assembled Matrix
+KSP Object: 8 MPI processes
+  type: fgmres
+    GMRES: restart=100, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+    GMRES: happy breakdown tolerance 1e-30
+  maximum iterations=500, initial guess is zero
+  tolerances:  relative=0.001, absolute=1e-16, divergence=10000.
+  right preconditioning
+  using UNPRECONDITIONED norm type for convergence test
+PC Object: 8 MPI processes
+  type: ksp
+  KSP and PC on KSP preconditioner follow
+  ---------------------------------
+    KSP Object:    (ksp_)     8 MPI processes
+      type: gmres
+        GMRES: restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+        GMRES: happy breakdown tolerance 1e-30
+      maximum iterations=10, initial guess is zero
+      tolerances:  relative=1e-05, absolute=1e-50, divergence=10000.
+      left preconditioning
+      using PRECONDITIONED norm type for convergence test
+    PC Object:    (ksp_)     8 MPI processes
+      type: bjacobi
+        block Jacobi: number of blocks = 8
+        Local solve is same for all blocks, in the following KSP and PC objects:
+      KSP Object:      (ksp_sub_)       1 MPI processes
+        type: preonly
+        maximum iterations=10000, initial guess is zero
+        tolerances:  relative=1e-05, absolute=1e-50, divergence=10000.
+        left preconditioning
+        using DEFAULT norm type for convergence test
+      PC Object:      (ksp_sub_)       1 MPI processes
+        type: ilu
+        PC has not been set up so information may be incomplete
+          ILU: out-of-place factorization
+          2 levels of fill
+          tolerance for zero pivot 2.22045e-14
+          matrix ordering: lines
+        linear system matrix = precond matrix:
+        Mat Object:         1 MPI processes
+          type: seqbaij
+          rows=10542, cols=10542, bs=6
+          total: nonzeros=394812, allocated nonzeros=394812
+          total number of mallocs used during MatSetValues calls =0
+              block size is 6
+      linear system matrix = precond matrix:
+      Mat Object:       8 MPI processes
+        type: mpibaij
+        rows=85680, cols=85680, bs=6
+        total: nonzeros=3404304, allocated nonzeros=3404304
+        total number of mallocs used during MatSetValues calls =0
+            block size is 6
+  ---------------------------------
+  linear system matrix followed by preconditioner matrix:
+  Mat Object:   8 MPI processes
+    type: mpibaij
+    rows=85680, cols=85680, bs=6
+    total: nonzeros=27892656, allocated nonzeros=27892656
+    total number of mallocs used during MatSetValues calls =0
+        block size is 6
+  Mat Object:   8 MPI processes
+    type: mpibaij
+    rows=85680, cols=85680, bs=6
+    total: nonzeros=3404304, allocated nonzeros=3404304
+    total number of mallocs used during MatSetValues calls =0
+        block size is 6
+Initial fnorm: 3168.05 
+reordering using the lines ... 
+reordering using the lines ... 
+reordering using the lines ... 
+reordering using the lines ... 
+reordering using the lines ... 
+reordering using the lines ... 
+reordering using the lines ... 
+reordering using the lines ... 
+Step:   1  CFL:          0.1  fnorm: 1.400828E+03  CPU:   3.2346  WU:  45.0437 #LI:    7 #ILI:  -1 om:1.0000
+Step:   2  CFL:         0.15  fnorm: 8.063346E+02  CPU:   6.5194  WU:  90.7869 #LI:    8 #ILI:  -1 om:1.0000
+Step:   3  CFL:        0.225  fnorm: 5.776626E+02  CPU:   9.8172  WU: 136.7110 #LI:    8 #ILI:  -1 om:1.0000
+Step:   4  CFL:       0.3375  fnorm: 4.308870E+02  CPU:  13.1716  WU: 183.4226 #LI:    9 #ILI:  -1 om:1.0000
+Step:   5  CFL:      0.50625  fnorm: 3.112637E+02  CPU:  16.5857  WU: 230.9665 #LI:   10 #ILI:  -1 om:1.0000
+Step:   6  CFL:     0.759375  fnorm: 2.114541E+02  CPU:  20.1233  WU: 280.2297 #LI:   12 #ILI:  -1 om:1.0000
+Step:   7  CFL:      1.13906  fnorm: 1.326735E+02  CPU:  23.7965  WU: 331.3814 #LI:   13 #ILI:  -1 om:1.0000
+Step:   8  CFL:      1.70859  fnorm: 7.727372E+01  CPU:  27.4847  WU: 382.7415 #LI:   15 #ILI:  -1 om:1.0000
+Step:   9  CFL:      2.56289  fnorm: 4.297601E+01  CPU:  31.2933  WU: 435.7784 #LI:   17 #ILI:  -1 om:1.0000
+Step:  10  CFL:      3.84434  fnorm: 2.286263E+01  CPU:  35.2521  WU: 490.9074 #LI:   21 #ILI:  -1 om:1.0000
+Step:  11  CFL:       5.7665  fnorm: 1.110401E+01  CPU:  39.3543  WU: 548.0330 #LI:   24 #ILI:  -1 om:1.0000
+Step:  12  CFL:      8.64976  fnorm: 5.071460E+00  CPU:  43.6588  WU: 607.9762 #LI:   27 #ILI:  -1 om:1.0000
+Step:  13  CFL:      12.9746  fnorm: 2.243106E+00  CPU:  48.0028  WU: 668.4689 #LI:   30 #ILI:  -1 om:1.0000
+Step:  14  CFL:       19.462  fnorm: 9.093192E-01  CPU:  52.4515  WU: 730.4209 #LI:   33 #ILI:  -1 om:1.0000
+Step:  15  CFL:      29.1929  fnorm: 4.209708E-01  CPU:  56.9912  WU: 793.6384 #LI:   36 #ILI:  -1 om:1.0000
+Step:  16  CFL:      43.7894  fnorm: 2.278333E-01  CPU:  61.8210  WU: 860.8961 #LI:   41 #ILI:  -1 om:1.0000
+Step:  17  CFL:      65.6841  fnorm: 1.154196E-01  CPU:  66.7605  WU: 929.6824 #LI:   45 #ILI:  -1 om:1.0000
+Step:  18  CFL:      98.5261  fnorm: 5.797284E-02  CPU:  72.0162  WU: 1002.8715 #LI:   49 #ILI:  -1 om:1.0000
+Step:  19  CFL:      147.789  fnorm: 3.100791E-02  CPU:  77.3160  WU: 1076.6740 #LI:   55 #ILI:  -1 om:1.0000
+Step:  20  CFL:      221.684  fnorm: 1.419372E-02  CPU:  82.9220  WU: 1154.7411 #LI:   57 #ILI:  -1 om:1.0000
+Step:  21  CFL:      332.526  fnorm: 4.784989E-03  CPU:  88.5897  WU: 1233.6681 #LI:   63 #ILI:  -1 om:1.0000
+Step:  22  CFL:      498.789  fnorm: 1.136530E-03  CPU:  94.4284  WU: 1314.9750 #LI:   64 #ILI:  -1 om:1.0000
+Step:  23  CFL:      748.183  fnorm: 1.842292E-04  CPU: 100.2421  WU: 1395.9353 #LI:   66 #ILI:  -1 om:1.0000
+Step:  24  CFL:      1122.27  fnorm: 1.994108E-05  CPU: 106.0145  WU: 1476.3192 #LI:   66 #ILI:  -1 om:1.0000
+Step:  25  CFL:      1683.41  fnorm: 1.423465E-06  CPU: 112.1431  WU: 1561.6639 #LI:   68 #ILI:  -1 om:1.0000
+Step:  26  CFL:      2525.12  fnorm: 6.669857E-08  CPU: 118.1993  WU: 1646.0008 #LI:   69 #ILI:  -1 om:1.0000
+Step:  27  CFL:      3787.68  fnorm: 3.393105E-09  CPU: 124.3183  WU: 1731.2114 #LI:   69 #ILI:  -1 om:1.0000
+FI Time : 0.07181
+Jac Time : 79.2122
+KSP Time : 41.9454
+Min/max recon condition numbers:    1.04743    1.64012
+CLv: 6.4248e-08
+CDv: 0.00232655
+CSv: 5.60971e-16
+CLp: -35.7152
+CDp: 0
+CSp: 0
+Cf at x=0.97008 and z = 0.5: 0.00228106 
+Min/max recon condition numbers:    2.10336    14.9068

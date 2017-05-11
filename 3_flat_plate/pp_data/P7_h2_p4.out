@@ -1,0 +1,271 @@
+[n154:05726] System has detected external process binding to cores 0001
+[n154:05726] MCW rank 0 bound to socket 0[core 0]: [B]
+[n121:16516] MCW rank 2 bound to socket 0[core 0]: [B]
+[n101:32709] MCW rank 6 bound to socket 0[core 0]: [B]
+[n103:30541] MCW rank 4 bound to socket 0[core 0]: [B]
+[n137:28699] MCW rank 1 bound to socket 0[core 0]: [B]
+[n102:27831] MCW rank 5 bound to socket 0[core 0]: [B]
+[n107:27746] MCW rank 3 bound to socket 0[core 0]: [B]
+Reading local file options/h2_p4.opt for options. 
+#PETSc Option Table entries:
+-C 0.1
+-a 4
+-angle 0
+-d 3
+-exnut 1
+-f MESH/plate_m2
+-ita_history_name pp_data/h2_p4.hst
+-ita_histoy_name pp_data/P7_h2_p4.hst
+-ita_target_residual 1e-8
+-jacobian_type recanalytic
+-ksp_gmres_preallocate
+-ksp_gmres_restart 100
+-ksp_max_it 500
+-ksp_norm_type unpreconditioned
+-ksp_rtol 1e-3
+-ksp_type fgmres
+-mach 0.2
+-max_iter 70
+-mcell3d_part_file MESH/plate_m2
+-mesh_type c
+-no_distance_weight
+-opt options/h2_p4.opt
+-pc_type bjacobi
+-physics TurbSA3D
+-pre_order 1
+-pseudolts_fixed
+-recon_condition
+-reynolds 5e6
+-sol sol/h2_p3
+-sol_out sol/h2_p4
+-sub_ksp_gmres_preallocate
+-sub_ksp_maxit 10
+-sub_ksp_norm_type preconditioned
+-sub_ksp_type gmres
+-sub_pc_factor_levels 2
+-sub_pc_factor_mat_ordering_type rcm
+-turbsa3d_pp_file pp_data/h2_p4.postproc
+-turbsa3d_problem_data flat_plate
+#End of PETSc Option Table entries
+Physics classes defined: AUSM2D AUSMP2D AdvDiff Advection Burgers Carreau2D Euler2DAdjoint Euler3D Newtonian2D Poisson Potential PowerLaw2D Roe2D RoeTurbSA2D RoeVisc2D RoeVisc2DAdjoint TurbSA3D ViscBurgers 
+DualPhysics classes defined: AUSM2DError AUSMP2DError AdvDiffError AdvectionError BurgersError Carreau2DError Newtonian2DError PoissonError PowerLaw2DError Roe2DError RoeTurbSA2DError RoeVisc2DError ViscBurgersError 
+MeshCell3D Constructor ------------------------------------------- 
+Reading MESH/plate_m2.vmesh 
+Reading MESH/plate_m2_npart7.part for partition data. 
+[0] faces: n_interior = 45910; n_boundary = 3360; n_partition = 1084; n_total = 50354
+[1] faces: n_interior = 44893; n_boundary = 2220; n_partition = 3166; n_total = 50279
+[2] faces: n_interior = 45581; n_boundary = 4125; n_partition = 1997; n_total = 51703
+[3] faces: n_interior = 45675; n_boundary = 3817; n_partition = 1445; n_total = 50937
+[4] faces: n_interior = 47004; n_boundary = 2415; n_partition = 4401; n_total = 53820
+[5] faces: n_interior = 46978; n_boundary = 2995; n_partition = 1491; n_total = 51464
+[6] faces: n_interior = 47329; n_boundary = 2652; n_partition = 3532; n_total = 53513
+n_global_faces = 353512
+Extra Quadrature Order: cell: 0  face: 0 
+Stencil size: 0, 6, 15, 30 
+Global Num of CVs : 114240
+[0] Num of CVs : 16044
+[1] Num of CVs : 15862
+[2] Num of CVs : 16214
+[3] Num of CVs : 16102
+[4] Num of CVs : 16804
+[5] Num of CVs : 16407
+[6] Num of CVs : 16807
+End of MeshCell3D Constructor ------------------------------------ 
+Creating a TurbSA3D Physics object. 
+alpha=0.000000 psi=0. 
+Min/max recon condition numbers:    9.95799    134.202
+Recon Order: 4 
+Recon Order: 4 
+Recon Order: 4 
+Recon Order: 4 
+Recon Order: 4 
+Recon Order: 4 
+Recon Order: 4 
+Min/max recon condition numbers:    9.95799    310.103
+Jacobian is of order: 4 
+Beginning Matrix Assembly
+Control volumes: 114240, non-zeros: 1846536
+Assembled Matrix
+Creating a recon of order 1 for JacInteg 
+Beginning Matrix Assembly
+Control volumes: 114240, non-zeros: 108948
+Assembled Matrix
+KSP Object: 7 MPI processes
+  type: fgmres
+    GMRES: restart=100, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+    GMRES: happy breakdown tolerance 1e-30
+  maximum iterations=500, initial guess is zero
+  tolerances:  relative=0.001, absolute=1e-16, divergence=10000.
+  right preconditioning
+  using UNPRECONDITIONED norm type for convergence test
+PC Object: 7 MPI processes
+  type: bjacobi
+    block Jacobi: number of blocks = 7
+    Local solve is same for all blocks, in the following KSP and PC objects:
+  KSP Object:  (sub_)   1 MPI processes
+    type: gmres
+      GMRES: restart=30, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+      GMRES: happy breakdown tolerance 1e-30
+    maximum iterations=10000, initial guess is zero
+    tolerances:  relative=1e-05, absolute=1e-50, divergence=10000.
+    left preconditioning
+    using PRECONDITIONED norm type for convergence test
+  PC Object:  (sub_)   1 MPI processes
+    type: ilu
+    PC has not been set up so information may be incomplete
+      ILU: out-of-place factorization
+      ILU: Reusing reordering from past factorization
+      2 levels of fill
+      tolerance for zero pivot 2.22045e-14
+      using diagonal shift to prevent zero pivot [NONZERO]
+      matrix ordering: rcm
+    linear system matrix = precond matrix:
+    Mat Object:     1 MPI processes
+      type: seqbaij
+      rows=96264, cols=96264, bs=6
+      total: nonzeros=3883104, allocated nonzeros=3883104
+      total number of mallocs used during MatSetValues calls =0
+          block size is 6
+  linear system matrix followed by preconditioner matrix:
+  Mat Object:   7 MPI processes
+    type: mpibaij
+    rows=685440, cols=685440, bs=6
+    total: nonzeros=478254528, allocated nonzeros=478254528
+    total number of mallocs used during MatSetValues calls =0
+        block size is 6
+  Mat Object:   7 MPI processes
+    type: mpibaij
+    rows=685440, cols=685440, bs=6
+    total: nonzeros=28011456, allocated nonzeros=28011456
+    total number of mallocs used during MatSetValues calls =0
+        block size is 6
+Initial fnorm: 6826.67 
+Step:   1  CFL:          0.1  fnorm: 1.727407E+03  CPU:  54.4629  WU:  60.0222 #LI:    8 #ILI:  -1 om:1.0000
+Step:   2  CFL:         0.15  fnorm: 6.628419E+02  CPU: 110.9128  WU: 122.2342 #LI:   10 #ILI:  -1 om:1.0000
+Step:   3  CFL:        0.225  fnorm: 3.844473E+02  CPU: 166.9752  WU: 184.0193 #LI:   10 #ILI:  -1 om:1.0000
+Step:   4  CFL:       0.3375  fnorm: 2.977911E+02  CPU: 224.2513  WU: 247.1418 #LI:   12 #ILI:  -1 om:1.0000
+Step:   5  CFL:      0.50625  fnorm: 2.244066E+02  CPU: 281.0399  WU: 309.7271 #LI:   14 #ILI:  -1 om:1.0000
+Step:   6  CFL:     0.759375  fnorm: 1.560080E+02  CPU: 338.5188  WU: 373.0732 #LI:   15 #ILI:  -1 om:1.0000
+Step:   7  CFL:      1.13906  fnorm: 9.819005E+01  CPU: 397.5871  WU: 438.1710 #LI:   18 #ILI:  -1 om:1.0000
+Step:   8  CFL:      1.70859  fnorm: 5.543802E+01  CPU: 458.0836  WU: 504.8427 #LI:   21 #ILI:  -1 om:1.0000
+Step:   9  CFL:      2.56289  fnorm: 2.918220E+01  CPU: 520.2817  WU: 573.3897 #LI:   24 #ILI:  -1 om:1.0000
+Step:  10  CFL:      3.84434  fnorm: 1.529108E+01  CPU: 585.0947  WU: 644.8185 #LI:   29 #ILI:  -1 om:1.0000
+Step:  11  CFL:       5.7665  fnorm: 7.927229E+00  CPU: 654.8302  WU: 721.6722 #LI:   36 #ILI:  -1 om:1.0000
+Step:  12  CFL:      8.64976  fnorm: 3.876954E+00  CPU: 730.1438  WU: 804.6735 #LI:   43 #ILI:  -1 om:1.0000
+Step:  13  CFL:      12.9746  fnorm: 1.854378E+00  CPU: 810.3674  WU: 893.0860 #LI:   52 #ILI:  -1 om:1.0000
+Step:  14  CFL:       19.462  fnorm: 9.558653E-01  CPU: 898.3629  WU: 990.0636 #LI:   62 #ILI:  -1 om:1.0000
+Step:  15  CFL:      29.1929  fnorm: 4.765497E-01  CPU: 990.5754  WU: 1091.6888 #LI:   73 #ILI:  -1 om:1.0000
+Step:  16  CFL:      43.7894  fnorm: 2.034810E-01  CPU: 1096.3630  WU: 1208.2747 #LI:   85 #ILI:  -1 om:1.0000
+Step:  17  CFL:      65.6841  fnorm: 8.484833E-02  CPU: 1216.9710  WU: 1341.1939 #LI:  100 #ILI:  -1 om:1.0000
+Step:  18  CFL:      98.5261  fnorm: 4.104986E-02  CPU: 1351.8938  WU: 1489.8890 #LI:  124 #ILI:  -1 om:1.0000
+Step:  19  CFL:      147.789  fnorm: 1.949481E-02  CPU: 1511.7331  WU: 1666.0439 #LI:  145 #ILI:  -1 om:1.0000
+Step:  20  CFL:      221.684  fnorm: 7.786570E-03  CPU: 1692.3147  WU: 1865.0585 #LI:  170 #ILI:  -1 om:1.0000
+Step:  21  CFL:      332.526  fnorm: 2.565244E-03  CPU: 1878.2810  WU: 2070.0073 #LI:  192 #ILI:  -1 om:1.0000
+Step:  22  CFL:      498.789  fnorm: 5.986655E-04  CPU: 2071.1737  WU: 2282.5897 #LI:  213 #ILI:  -1 om:1.0000
+Step:  23  CFL:      748.183  fnorm: 7.171884E-05  CPU: 2302.0925  WU: 2537.0796 #LI:  258 #ILI:  -1 om:1.0000
+Step:  24  CFL:      1122.27  fnorm: 6.759316E-06  CPU: 2697.6500  WU: 2973.0137 #LI:  486 #ILI:  -1 om:1.0000
+Step:  25  CFL:      1683.41  fnorm: 1.654776E-06  CPU: 3095.4216  WU: 3411.3881 #LI:  492 #ILI:  -1 om:1.0000
+Step:  26  CFL:      2525.12  fnorm: 1.770865E-07  CPU: 3500.3654  WU: 3857.6667 #LI:  479 #ILI:  -1 om:1.0000
+Step:  27  CFL:      3787.68  fnorm: 2.731227E-08  CPU: 3819.6373  WU: 4209.5284 #LI:  373 #ILI:  -1 om:1.0000
+Step:  28  CFL:      5681.51  fnorm: 2.277436E-08  CPU: 4027.8034  WU: 4438.9431 #LI:  203 #ILI:  -1 om:1.0000
+Step:  29  CFL:      8522.27  fnorm: 1.086447E-08  CPU: 4200.9289  WU: 4629.7405 #LI:  151 #ILI:  -1 om:1.0000
+Step:  30  CFL:      12783.4  fnorm: 8.815382E-09  CPU: 4369.4809  WU: 4815.4975 #LI:  156 #ILI:  -1 om:1.0000
+FI Time : 0.907379
+Jac Time : 1539.89
+KSP Time : 2769.37
+[4]PETSC ERROR: ------------------------------------------------------------------------
+[4]PETSC ERROR: Caught signal number 7 BUS: Bus Error, possibly illegal memory access
+[4]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[4]PETSC ERROR: or see http://www.mcs.anl.gov/petsc/documentation/faq.html#valgrind
+[4]PETSC ERROR: or try http://valgrind.org on GNU/linux and Apple Mac OS X to find memory corruption errors
+[4]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[4]PETSC ERROR: to get more information on the crash.
+[4]PETSC ERROR: --------------------- Error Message --------------------------------------------------------------
+[4]PETSC ERROR: Signal received
+[4]PETSC ERROR: See http://www.mcs.anl.gov/petsc/documentation/faq.html for trouble shooting.
+[4]PETSC ERROR: Petsc Release Version 3.7.5, Jan, 01, 2017 
+[4]PETSC ERROR: /home/hooshi/code/ANSLib/hooshi/apps/solver/Solver on a arch-gcc-ompi-opt-cxx-parmetis named n103 by hooshi Mon May  8 13:18:19 2017
+[4]PETSC ERROR: --------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD 
+with errorcode 59.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see http://www.mcs.anl.gov/petsc/documentation/faq.html#valgrind
+[0]PETSC ERROR: or try http://valgrind.org on GNU/linux and Apple Mac OS X to find memory corruption errors
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: to get more information on the crash.
+[0]PETSC ERROR: --------------------- Error Message --------------------------------------------------------------
+[0]PETSC ERROR: Signal received
+[0]PETSC ERROR: See http://www.mcs.anl.gov/petsc/documentation/faq.html for trouble shooting.
+[0]PETSC ERROR: Petsc Release Version 3.7.5, Jan, 01, 2017 
+[0]PETSC ERROR: /home/hooshi/code/ANSLib/hooshi/apps/solver/Solver on a arch-gcc-ompi-opt-cxx-parmetis named n154 by hooshi Mon May  8 13:18:19 2017
+[0]PETSC ERROR: Configure options --with-mpi --download-fblaslapack --download-metis --download-parmetis --with-cc=mpicc --with-clanguage=C++ --with-cxx=mpicxx --with-fc=mpif90 --with-shared-libraries --with-debugging=0 COPTFLAGS="-O3 -march=native -mtune=native" CXXOPTFLAGS="-O3 -march=native -mtune=native" FOPTFLAGS="-O3 -march=native -mtune=native"
+[0]PETSC ERROR: #1 User provided function() line 0 in  unknown file
+[2]PETSC ERROR: ------------------------------------------------------------------------
+[2]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[2]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[2]PETSC ERROR: or see http://www.mcs.anl.gov/petsc/documentation/faq.html#valgrind
+[2]PETSC ERROR: or try http://valgrind.org on GNU/linux and Apple Mac OS X to find memory corruption errors
+[2]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[2]PETSC ERROR: to get more information on the crash.
+[2]PETSC ERROR: --------------------- Error Message --------------------------------------------------------------
+[2]PETSC ERROR: Signal received
+[2]PETSC ERROR: See http://www.mcs.anl.gov/petsc/documentation/faq.html for trouble shooting.
+[2]PETSC ERROR: Petsc Release Version 3.7.5, Jan, 01, 2017 
+[2]PETSC ERROR: /home/hooshi/code/ANSLib/hooshi/apps/solver/Solver on a arch-gcc-ompi-opt-cxx-parmetis named n121 by hooshi Mon May  8 13:18:19 2017
+[2]PETSC ERROR: Configure options --with-mpi --download-fblaslapack --download-metis --download-parmetis --with-cc=mpicc --with-clanguage=C++ --with-cxx=mpicxx --with-fc=mpif90 --with-shared-libraries --with-debugging=0 COPTFLAGS="-O3 -march=native -mtune=native" CXXOPTFLAGS="-O3 -march=native -mtune=native" FOPTFLAGS="-O3 -march=native -mtune=native"
+[2]PETSC ERROR: #1 User provided function() line 0 in  unknown file
+[4]PETSC ERROR: ------------------------------------------------------------------------
+[4]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[4]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[4]PETSC ERROR: or see http://www.mcs.anl.gov/petsc/documentation/faq.html#valgrind
+[4]PETSC ERROR: or try http://valgrind.org on GNU/linux and Apple Mac OS X to find memory corruption errors
+[4]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[4]PETSC ERROR: to get more information on the crash.
+[4]PETSC ERROR: --------------------- Error Message --------------------------------------------------------------
+[4]PETSC ERROR: Signal received
+[4]PETSC ERROR: See http://www.mcs.anl.gov/petsc/documentation/faq.html for trouble shooting.
+[4]PETSC ERROR: Petsc Release Version 3.7.5, Jan, 01, 2017 
+[4]PETSC ERROR: /home/hooshi/code/ANSLib/hooshi/apps/solver/Solver on a arch-gcc-ompi-opt-cxx-parmetis named n103 by hooshi Mon May  8 13:18:19 2017
+[4]PETSC ERROR: Configure options --with-mpi --download-fblaslapack --download-metis --download-parmetis --with-cc=mpicc --with-clanguage=C++ --with-cxx=mpicxx --with-fc=mpif90 --with-shared-libraries --with-debugging=0 COPTFLAGS="-O3 -march=native -mtune=native" CXXOPTFLAGS="-O3 -march=native -mtune=native" FOPTFLAGS="-O3 -march=native -mtune=native"
+[4]PETSC ERROR: #1 User provided function() line 0 in  unknown file
+[5]PETSC ERROR: ------------------------------------------------------------------------
+[5]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[5]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[5]PETSC ERROR: or see http://www.mcs.anl.gov/petsc/documentation/faq.html#valgrind
+[5]PETSC ERROR: or try http://valgrind.org on GNU/linux and Apple Mac OS X to find memory corruption errors
+[5]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[5]PETSC ERROR: to get more information on the crash.
+[5]PETSC ERROR: --------------------- Error Message --------------------------------------------------------------
+[5]PETSC ERROR: Signal received
+[5]PETSC ERROR: See http://www.mcs.anl.gov/petsc/documentation/faq.html for trouble shooting.
+[5]PETSC ERROR: Petsc Release Version 3.7.5, Jan, 01, 2017 
+[5]PETSC ERROR: /home/hooshi/code/ANSLib/hooshi/apps/solver/Solver on a arch-gcc-ompi-opt-cxx-parmetis named n102 by hooshi Mon May  8 13:18:19 2017
+[5]PETSC ERROR: Configure options --with-mpi --download-fblaslapack --download-metis --download-parmetis --with-cc=mpicc --with-clanguage=C++ --with-cxx=mpicxx --with-fc=mpif90 --with-shared-libraries --with-debugging=0 COPTFLAGS="-O3 -march=native -mtune=native" CXXOPTFLAGS="-O3 -march=native -mtune=native" FOPTFLAGS="-O3 -march=native -mtune=native"
+[5]PETSC ERROR: #1 User provided function() line 0 in  unknown file
+--------------------------------------------------------------------------
+mpiexec noticed that process rank 3 with PID 27747 on node n107 exited on signal 7 (Bus error).
+--------------------------------------------------------------------------
+[6]PETSC ERROR: ------------------------------------------------------------------------
+[6]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[6]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[6]PETSC ERROR: or see http://www.mcs.anl.gov/petsc/documentation/faq.html#valgrind
+[6]PETSC ERROR: or try http://valgrind.org on GNU/linux and Apple Mac OS X to find memory corruption errors
+[6]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[6]PETSC ERROR: to get more information on the crash.
+[6]PETSC ERROR: --------------------- Error Message --------------------------------------------------------------
+[6]PETSC ERROR: Signal received
+[6]PETSC ERROR: See http://www.mcs.anl.gov/petsc/documentation/faq.html for trouble shooting.
+[6]PETSC ERROR: Petsc Release Version 3.7.5, Jan, 01, 2017 
+[6]PETSC ERROR: /home/hooshi/code/ANSLib/hooshi/apps/solver/Solver on a arch-gcc-ompi-opt-cxx-parmetis named n101 by hooshi Mon May  8 13:18:19 2017
+[6]PETSC ERROR: Configure options --with-mpi --download-fblaslapack --download-metis --download-parmetis --with-cc=mpicc --with-clanguage=C++ --with-cxx=mpicxx --with-fc=mpif90 --with-shared-libraries --with-debugging=0 COPTFLAGS="-O3 -march=native -mtune=native" CXXOPTFLAGS="-O3 -march=native -mtune=native" FOPTFLAGS="-O3 -march=native -mtune=native"
+[6]PETSC ERROR: #1 User provided function() line 0 in  unknown file
+[n154:05726] 4 more processes have sent help message help-mpi-api.txt / mpi-abort
+[n154:05726] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+2 total processes killed (some possibly by mpiexec during cleanup)
