@@ -1,0 +1,216 @@
+Reading local file options/a4_medium_osexact_rcm.opt for options. 
+#PETSc Option Table entries:
+-a 4
+-angle 10
+-B MESH/225-65/n0012_225-65
+-C 0.01
+-d 2
+-exnut 1
+-f MESH/225-65/n0012_225-65
+-fec MESH/225-65/n0012_225-65
+-ita_history_name hst/a4_medium_osexact_rcm.hst
+-ita_target_residual 1e-5
+-jacobian_type recanalytic
+-ksp_converged_reason
+-ksp_max_it 500
+-ksp_rtol 1e-3
+-ksp_type gmres
+-mach 0.15
+-max_iter 80
+-mesh_type c
+-no_distance_weight
+-only_source_recon 1
+-opt options/a4_medium_osexact_rcm.opt
+-pc_factor_mat_ordering_type rcm
+-pc_type lu
+-physics RoeTurbSA2D
+-pre_order 2
+-pseudolts_fixed
+-recon_condition
+-reynolds 6000000
+-sol sol/a3_medium
+-sol_out sol/xxx
+#End of PETSc Option Table entries
+Physics classes defined: AUSM2D AUSMP2D AdvDiff Advection Burgers Carreau2D Euler2DAdjoint Euler3D Newtonian2D Poisson Potential Potential2 PowerLaw2D Roe2D RoeTurbSA2D RoeVisc2D RoeVisc2DAdjoint TurbSA3D ViscBurgers 
+DualPhysics classes defined: AUSM2DError AUSMP2DError AdvDiffError AdvectionError BurgersError Carreau2DError Newtonian2DError PoissonError PowerLaw2DError Roe2DError RoeTurbSA2DError RoeVisc2DError ViscBurgersError 
+Creating a GRUMMP Geometry in Rank [0] 
+Number of points: 480 
+Number of edges: 353 
+Serendipity interpolation functions are being used for quad elements
+ccell2d stencil size: 0, 0, 4, 9, 15
+Creating a RoeTurbSA2D Physics object. 
+Compressible2DDerived created!!!
+flux function 0 
+Mach = 0.15
+Reyn = 6e+06
+AOA = 0.174533
+Min/max recon condition numbers:    7.26496    12354.6
+Recon Order: 4 
+Min/max recon condition numbers:    7.26496    12354.6
+Jacobian is of order: 4 
+Beginning Matrix Assembly
+Control volumes: 25088, non-zeros: 807395
+Assembled Matrix
+mach:0.150000, reyn:6000000.000000, alpha:0.174533 
+Creating a recon of order 2 for JacInteg 
+Min/max recon condition numbers:    1.00029     11.045
+Beginning Matrix Assembly
+Control volumes: 25088, non-zeros: 232230
+Assembled Matrix
+Only assembling recon for the source term.
+mach:0.150000, reyn:6000000.000000, alpha:0.174533 
+KSP Object: 1 MPI processes
+  type: gmres
+    GMRES: restart=100, using Classical (unmodified) Gram-Schmidt Orthogonalization with no iterative refinement
+    GMRES: happy breakdown tolerance 1e-30
+  maximum iterations=500, initial guess is zero
+  tolerances:  relative=0.001, absolute=1e-16, divergence=10000.
+  left preconditioning
+  using PRECONDITIONED norm type for convergence test
+PC Object: 1 MPI processes
+  type: lu
+    LU: out-of-place factorization
+         Reusing reordering from past factorization
+    tolerance for zero pivot 2.22045e-14
+    matrix ordering: rcm
+    factor fill ratio given 5., needed 47.6703
+      Factored matrix follows:
+        Mat Object:         1 MPI processes
+          type: seqbaij
+          rows=125440, cols=125440, bs=5
+          package used to perform factorization: petsc
+          total: nonzeros=276761900, allocated nonzeros=276761900
+          total number of mallocs used during MatSetValues calls =0
+              block size is 5
+  linear system matrix followed by preconditioner matrix:
+  Mat Object:   1 MPI processes
+    type: seqbaij
+    rows=125440, cols=125440, bs=5
+    total: nonzeros=20184875, allocated nonzeros=20184875
+    total number of mallocs used during MatSetValues calls =0
+        block size is 5
+  Mat Object:   1 MPI processes
+    type: seqbaij
+    rows=125440, cols=125440, bs=5
+    total: nonzeros=5805750, allocated nonzeros=5805750
+    total number of mallocs used during MatSetValues calls =0
+        block size is 5
+Initial fnorm: 384.364 
+Linear solve converged due to CONVERGED_RTOL iterations 7
+Step:   1  CFL:         0.01  fnorm: 2.079769E+02  CPU: 261.4876  WU: 1164.6048 #LI:    7 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 6
+Step:   2  CFL:        0.015  fnorm: 1.702258E+02  CPU: 517.9362  WU: 2306.7674 #LI:    6 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 6
+Step:   3  CFL:       0.0225  fnorm: 1.528441E+02  CPU: 721.3402  WU: 3212.6813 #LI:    6 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 6
+Step:   4  CFL:      0.03375  fnorm: 1.364830E+02  CPU: 876.5237  WU: 3903.8324 #LI:    6 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 7
+Step:   5  CFL:     0.050625  fnorm: 1.219982E+02  CPU: 1011.2973  WU: 4504.0828 #LI:    7 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 8
+Step:   6  CFL:    0.0759375  fnorm: 1.073230E+02  CPU: 1087.0098  WU: 4841.2884 #LI:    8 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 8
+Step:   7  CFL:     0.113906  fnorm: 9.236631E+01  CPU: 1154.5254  WU: 5141.9870 #LI:    8 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 9
+Step:   8  CFL:     0.170859  fnorm: 7.826323E+01  CPU: 1221.5054  WU: 5440.3005 #LI:    9 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 9
+Step:   9  CFL:     0.256289  fnorm: 6.553174E+01  CPU: 1288.8980  WU: 5740.4515 #LI:    9 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 10
+Step:  10  CFL:     0.384434  fnorm: 5.454992E+01  CPU: 1356.0528  WU: 6039.5433 #LI:   10 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 11
+Step:  11  CFL:      0.57665  fnorm: 4.514071E+01  CPU: 1423.0319  WU: 6337.8525 #LI:   11 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 11
+Step:  12  CFL:     0.864976  fnorm: 3.686331E+01  CPU: 1491.7174  WU: 6643.7618 #LI:   11 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 10
+Step:  13  CFL:      1.29746  fnorm: 2.941113E+01  CPU: 1558.5265  WU: 6941.3139 #LI:   10 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 11
+Step:  14  CFL:       1.9462  fnorm: 2.282398E+01  CPU: 1625.4252  WU: 7239.2653 #LI:   11 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 12
+Step:  15  CFL:      2.91929  fnorm: 1.733772E+01  CPU: 1692.6306  WU: 7538.5824 #LI:   12 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 13
+Step:  16  CFL:      4.37894  fnorm: 1.312277E+01  CPU: 1760.0216  WU: 7838.7264 #LI:   13 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 14
+Step:  17  CFL:      6.56841  fnorm: 9.936735E+00  CPU: 1828.9146  WU: 8145.5596 #LI:   14 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 15
+Step:  18  CFL:      9.85261  fnorm: 7.346436E+00  CPU: 1896.2872  WU: 8445.6217 #LI:   15 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 17
+Step:  19  CFL:      14.7789  fnorm: 5.344992E+00  CPU: 1962.4046  WU: 8740.0930 #LI:   17 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 19
+Step:  20  CFL:      22.1684  fnorm: 4.383481E+00  CPU: 2028.8279  WU: 9035.9272 #LI:   19 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 21
+Step:  21  CFL:      33.2526  fnorm: 3.244188E+00  CPU: 2095.6642  WU: 9333.6005 #LI:   21 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 22
+Step:  22  CFL:      49.8789  fnorm: 3.748798E+00  CPU: 2162.5641  WU: 9631.5568 #LI:   22 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 24
+Step:  23  CFL:      74.8183  fnorm: 2.948228E+00  CPU: 2229.7668  WU: 9930.8621 #LI:   24 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 27
+Step:  24  CFL:      112.227  fnorm: 7.115770E-01  CPU: 2297.9058  WU: 10234.3373 #LI:   27 #ILI:  -1 om:0.5000
+Linear solve converged due to CONVERGED_RTOL iterations 28
+Step:  25  CFL:      112.227  fnorm: 8.479105E-01  CPU: 2366.6718  WU: 10540.6048 #LI:   28 #ILI:  -1 om:0.2500
+Linear solve converged due to CONVERGED_RTOL iterations 28
+Step:  26  CFL:      112.227  fnorm: 9.965352E-01  CPU: 2435.9960  WU: 10849.3588 #LI:   28 #ILI:  -1 om:0.1250
+Linear solve converged due to CONVERGED_RTOL iterations 28
+Step:  27  CFL:      112.227  fnorm: 1.119409E+00  CPU: 2505.2893  WU: 11157.9751 #LI:   28 #ILI:  -1 om:0.1250
+Linear solve converged due to CONVERGED_RTOL iterations 28
+Step:  28  CFL:      112.227  fnorm: 1.298302E+00  CPU: 2574.2884  WU: 11465.2810 #LI:   28 #ILI:  -1 om:0.2500
+Linear solve converged due to CONVERGED_RTOL iterations 28
+Step:  29  CFL:      112.227  fnorm: 1.469678E+00  CPU: 2642.7959  WU: 11770.3976 #LI:   28 #ILI:  -1 om:0.5000
+Linear solve converged due to CONVERGED_RTOL iterations 28
+Step:  30  CFL:      112.227  fnorm: 9.438170E-01  CPU: 2712.6019  WU: 12081.2972 #LI:   28 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 32
+Step:  31  CFL:      168.341  fnorm: 6.451971E-01  CPU: 2781.2096  WU: 12386.8596 #LI:   32 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 32
+Step:  32  CFL:      252.512  fnorm: 6.438654E-01  CPU: 2853.5592  WU: 12709.0881 #LI:   32 #ILI:  -1 om:0.5000
+Linear solve converged due to CONVERGED_RTOL iterations 33
+Step:  33  CFL:      252.512  fnorm: 7.403982E-01  CPU: 2923.2192  WU: 13019.3377 #LI:   33 #ILI:  -1 om:0.2500
+Linear solve converged due to CONVERGED_RTOL iterations 33
+Step:  34  CFL:      252.512  fnorm: 8.210749E-01  CPU: 2993.3880  WU: 13331.8531 #LI:   33 #ILI:  -1 om:0.1250
+Linear solve converged due to CONVERGED_RTOL iterations 33
+Step:  35  CFL:      252.512  fnorm: 9.605165E-01  CPU: 3063.1696  WU: 13642.6441 #LI:   33 #ILI:  -1 om:0.2500
+Linear solve converged due to CONVERGED_RTOL iterations 33
+Step:  36  CFL:      252.512  fnorm: 1.080782E+00  CPU: 3132.2529  WU: 13950.3251 #LI:   33 #ILI:  -1 om:0.5000
+Linear solve converged due to CONVERGED_RTOL iterations 33
+Step:  37  CFL:      252.512  fnorm: 7.412142E-01  CPU: 3201.0901  WU: 14256.9097 #LI:   33 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 37
+Step:  38  CFL:      378.768  fnorm: 4.025482E-01  CPU: 3271.1920  WU: 14569.1276 #LI:   37 #ILI:  -1 om:0.5000
+Linear solve converged due to CONVERGED_RTOL iterations 38
+Step:  39  CFL:      378.768  fnorm: 4.250691E-01  CPU: 3341.3616  WU: 14881.6462 #LI:   38 #ILI:  -1 om:0.2500
+Linear solve converged due to CONVERGED_RTOL iterations 38
+Step:  40  CFL:      378.768  fnorm: 5.014199E-01  CPU: 3411.2139  WU: 15192.7525 #LI:   38 #ILI:  -1 om:0.5000
+Linear solve converged due to CONVERGED_RTOL iterations 38
+Step:  41  CFL:      378.768  fnorm: 4.399210E-01  CPU: 3480.4315  WU: 15501.0315 #LI:   38 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 42
+Step:  42  CFL:      568.151  fnorm: 4.021694E-01  CPU: 3550.6050  WU: 15813.5680 #LI:   42 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 41
+Step:  43  CFL:      852.227  fnorm: 2.695630E-01  CPU: 3620.4056  WU: 16124.4433 #LI:   41 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 42
+Step:  44  CFL:      1278.34  fnorm: 1.784910E-01  CPU: 3692.7984  WU: 16446.8639 #LI:   42 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 43
+Step:  45  CFL:      1917.51  fnorm: 4.871344E-02  CPU: 3762.7666  WU: 16758.4863 #LI:   43 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 52
+Step:  46  CFL:      2876.27  fnorm: 2.129899E-02  CPU: 3839.1617  WU: 17098.7319 #LI:   52 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 62
+Step:  47  CFL:       4314.4  fnorm: 3.000873E-03  CPU: 3912.2227  WU: 17424.1288 #LI:   62 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 67
+Step:  48  CFL:       6471.6  fnorm: 8.928600E-04  CPU: 3986.0556  WU: 17752.9632 #LI:   67 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 77
+Step:  49  CFL:       9707.4  fnorm: 6.285755E-05  CPU: 4061.5496  WU: 18089.1961 #LI:   77 #ILI:  -1 om:1.0000
+Linear solve converged due to CONVERGED_RTOL iterations 83
+Step:  50  CFL:      14561.1  fnorm: 8.421150E-06  CPU: 4138.3953  WU: 18431.4491 #LI:   83 #ILI:  -1 om:1.0000
+FI Time : 0.224529
+Jac Time : 341.881
+KSP Time : 3767.35
+Min/max recon condition numbers:    1.00029     11.045
+mach:0.150000, reyn:6000000.000000, alpha:UNKNOWN 
+Number of CVs: 25088
+Order: 4
+Viscous ForceX: 6.48696e-05
+Viscous ForceY: 9.69273e-06
+ForceX: -0.00207912
+ForceY: 0.0121441
+Lift coeff due to pressure: 1.09517
+Lift coeff due to viscosity: -0.0001528
+Drag coeff due to pressure: 0.00544529
+Drag coeff due to viscosity: 0.00582819
+C_L         C_D         C_D (shear) #NLI    #LI     
+1.0952e+00  5.4453e-03  5.8282e-03  50      1360    
+Min/max recon condition numbers:    7.26496    12354.6

@@ -1,0 +1,4 @@
+hooshi     633 98.6  0.4 690056 76020 pts/18   Rl+  18:28   0:08          |       |   |       \_ /home/hooshi/code/ANSLib/hooshi/apps/solver/Solver options/a3_fine.opt
+hooshi     656  0.0  0.0  14228  1040 pts/8    S+   18:28   0:00          |       |       \_ grep --color Solver
+hooshi     633 99.8 11.7 2528432 1919584 pts/18 Rl+ 18:28   8:28          |       |   |       \_ /home/hooshi/code/ANSLib/hooshi/apps/solver/Solver options/a3_fine.opt
+hooshi    1085  0.0  0.0  14228   944 pts/8    S+   18:36   0:00          |       |       \_ grep --color Solver

@@ -7,7 +7,7 @@
 
 ## SET THE LOCATION FOR THE SOLVER
 EXEC=~/code/ANSLib/hooshi/apps/solver/Solver
-EXEC="mpirun -np 2 ${EXEC}"
+EXEC="mpirun -np 1 ${EXEC}"
 
 # SET THE OPTIONS AND THE PROBLEM DATA
 OPT='-pseudolts_fixed -C 1e20 -ita_cfl_max 1e20 -physics Poisson -d 3 -JC 1 -bJC 1 -mesh_type c -ksp_type fgmres -ksp_rtol 1e-15 -ksp_atol 1e-10 -ita_target_residual 1e-8 -pre_order 1 -pc_type ansksp -ansksp_ksp_type gmres -ansksp_ksp_its 5 -ansksp_pc_type sor -ansksp_pc_sor_its 5'

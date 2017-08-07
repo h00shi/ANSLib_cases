@@ -1,0 +1,25 @@
+# ------------------------------------------- MESH
+#-f plate_m1
+#-f plate_m2
+-f plate_m3
+
+# ------------------------------------------ PARTITIONING
+-n_part 2-11
+
+# ------------------------------------------ PROPERTIES
+-d 3
+-mu 1
+#-min_wgt 1e5 #m1
+#-min_wgt 1e6 #m2
+-min_wgt 5e6 #m3
+-max_angle 55
+-vv 0
+
+-mesh_type c
+-mcell3d_stencil_size 0,0,0,0,0
+-physics TurbSA3D
+-reynolds 5000000
+-mach 0.2
+-angle 0
+-JC 1
+-mcell3d_old_initrecon
