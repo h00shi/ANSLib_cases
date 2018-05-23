@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import os
 import sys
 import getopt
 import numpy as np
@@ -202,6 +203,27 @@ def main(argv):
     hist = ConvergenceHistory(inputfile)
     hist.init_axis()
     hist.plot()
+
+def append_number_to_name(filename):
+
+    candid = filename.rsplit('.',2)[-2]
+
+    ## candid is not a number
+    if( not candid.isdigit() ):
+        #print 'bad %s %s' % (candid, candid[-1])
+        all_str = filename.rsplit('.',1)
+        filename_out = "%s.0.%s" % (all_str[0], all_str[1])
+        return append_number_to_name(filename_out)
+    
+   ## the file already exists     
+    if os.path.isfile(filename):
+        # print 'bad %s exists' % candid
+        all_str = filename.rsplit('.',2)
+        filename_out = "%s.%d.%s" % (all_str[0], int(all_str[1])+1, all_str[2])
+        return append_number_to_name(filename_out)
+
+    ## everything is fine
+    return filename
 
 if __name__ == "__main__":
     main(sys.argv[1:])

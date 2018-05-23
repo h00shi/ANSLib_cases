@@ -1,6 +1,12 @@
 #!/usr/bin/python
 
 # WRITE THE FILE TO SOLVE THE a3 case:
+import sys; sys.path.insert(0, '../')
+import history as hst
+
+def write_hst(f, name):
+    name = hst.append_number_to_name(name)
+    f.write('-ita_history_name {}\n'.format(name))
 
 for ii in [1, 2, 3, 4]:
 
@@ -13,7 +19,8 @@ for ii in [1, 2, 3, 4]:
         f.write('\n# --------------------------- HISTORY AND SOLUTION FILE NAME\n')
         f.write('-sol_out          sol/a3_coarse\n')
         # f.write('-sol          sol/a3_coarse\n')
-        f.write('-ita_history_name hst/a3_coarse.hst\n')
+        #f.write('-ita_history_name hst/a3_coarse.hst\n')
+        write_hst(f,'hst/a3_coarse.hst')
 
     elif (ii == 2):
         f = open('options/a3_medium.opt', 'w')
@@ -23,7 +30,8 @@ for ii in [1, 2, 3, 4]:
         f.write('-fec MESH/225-65/n0012_225-65\n')
         f.write('\n# --------------------------- HISTORY AND SOLUTION FILE NAME\n')
         f.write('-sol_out          sol/a3_medium\n')
-        f.write('-ita_history_name hst/a3_medium.hst\n')
+        #f.write('-ita_history_name hst/a3_medium.hst\n')
+        write_hst(f,'hst/a3_medium.hst')
 
     elif (ii == 3):
         f = open('options/a3_fine.opt', 'w')
@@ -33,7 +41,8 @@ for ii in [1, 2, 3, 4]:
         f.write('-fec MESH/449-129/n0012_449-129\n')
         f.write('\n# --------------------------- HISTORY AND SOLUTION FILE NAME\n')
         f.write('-sol_out          sol/a3_fine\n')
-        f.write('-ita_history_name hst/a3_fine.hst\n')
+        # f.write('-ita_history_name hst/a3_fine.hst\n')
+        write_hst(f,'hst/a3_fine.hst')
 
     elif (ii == 4):
         f = open('options/a3_sfine.opt', 'w')
@@ -43,7 +52,8 @@ for ii in [1, 2, 3, 4]:
         f.write('-fec MESH/897-257/n0012_897-257\n')
         f.write('\n# --------------------------- HISTORY AND SOLUTION FILE NAME\n')
         f.write('-sol_out          sol/a3_sfine\n')
-        f.write('-ita_history_name hst/a3_sfine.hst\n')
+        # f.write('-ita_history_name hst/a3_sfine.hst\n')
+        write_hst(f,'hst/a3_fine.hst')
 
     f.write('\n# --------------------------- ACCURACY\n')
     f.write('-a 3\n')
@@ -121,7 +131,8 @@ for msize in [1, 2, 3]:
             f.write('\n# -------------------- HISTORY AND SOLUTION FILE NAME\n')
             f.write('-sol  sol/a3_' + hst_name[msize] + '\n')
             f.write('-sol_out sol/xxx\n')
-            f.write('-ita_history_name  hst/a4_' + commname + '.hst\n')
+            # f.write('-ita_history_name  hst/a4_' + commname + '.hst\n')
+            write_hst(f,'hst/a4_{}.hst\n'.format(commname) )
 
             f.write('\n# --------------------------- ACCURACY\n')
             f.write('-a 4\n')
