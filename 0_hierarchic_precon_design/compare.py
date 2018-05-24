@@ -10,7 +10,7 @@ import anslib_plot_tools.history as hst
 import anslib_plot_tools.io as io
 import anslib_plot_tools.ansplot as aplt
 
-def plot_history_separate(ch, plt_options):
+def plot_history_separate(ch, plt_options={}):
     """Plot the convergence history on separate plots. """
 
     ch.init_axis()
@@ -39,7 +39,7 @@ def plot_history_separate(ch, plt_options):
     plt.savefig('png/ilu3.png')
 
 
-def plot_history_combined(ch, ax=None, plt_options={}):
+def plot_history_combined(ch, ax=None):
     """Plot the convergence history on a single plot.
 
 * Input:
@@ -60,16 +60,14 @@ def plot_history_combined(ch, ax=None, plt_options={}):
 
     """
     ch.init_axis()
-    plt_options_no_marker = plt_options.copy()
-    plt_options_no_marker.pop('marker', 's')
 
     if(ax is None): ax = plt.gca()
     fig = ax.get_figure()
 
-    c1 = plt.cm.viridis(0)
-    c2 = plt.cm.viridis(0.3)
-    c3 = plt.cm.viridis(.7)
-    c4 = plt.cm.viridis(.9)
+    c1 = 'b'
+    c2 = 'r'
+    c3 = 'g'
+    c4 = 'm'
 
     ax1 = ax; aplt.change_axis_color(ax1, c1, 'y', 'left') 
     ax2 = aplt.add_axis_twinx(ax1, 0, c2)
@@ -110,11 +108,22 @@ def main():
     jobs = []
 
     # jobs.append(hst.ConvergenceHistory("hst/a4_fine_ksp_lines.hst"))
-    jobs.append(hst.ConvergenceHistory("hst/a4_fine_lo-lu-mumps-right_rcm.0.hst"))
+    #jobs.append(hst.ConvergenceHistory("hst/a4_fine_lo-lu-mumps-right_rcm.0.hst"))
     
-    for (j, c, l, s) in zip(jobs, colors, labels, symbols):
+    #for (j, c, l, s) in zip(jobs, colors, labels, symbols):
         # plot_history_separate(j, dict(color=c, label=l, marker=s) )
-        plot_history_combined(ch=j, plt_options=dict(color=c, label=l, marker=s) )      
+        #plot_history_combined(ch=j, plt_options=dict(color=c, label=l, marker=s) )
+
+    def process_hst(fn):
+        hstn = "hst/{}.hst".format(fn)
+        fign = "2018-05-24/{}.svg".format(fn)
+        ch=hst.ConvergenceHistory(hstn)
+        plt.clf(), plot_history_combined(ch), plt.savefig(fign, bbox_inches='tight')
+
+    process_hst('a4_medium_lo-lu-mumps-right_rcm.0')
+    process_hst('a4_fine_lo-lu-mumps-right_rcm.0')
+
+        
     plt.show()
     
 if __name__ == "__main__":
