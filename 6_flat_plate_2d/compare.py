@@ -126,6 +126,13 @@ def main():
     process_hst('a3_coarse_lo-lu-petsc-right_rcm.0')
     process_hst('a4_coarse_lo-lu-petsc-right_rcm.0')
 
+    process_hst('a2_medium_lo-lu-petsc-right_rcm.0')
+    process_hst('a3_medium_lo-lu-petsc-right_rcm.0')
+    process_hst('a4_medium_lo-lu-petsc-right_rcm.0')
+
+    process_hst('a2_fine_lo-lu-petsc-right_rcm.0')
+    process_hst('a3_fine_lo-lu-petsc-right_rcm.0')
+    process_hst('a4_fine_lo-lu-petsc-right_rcm.0')
         
     plt.show()
     
